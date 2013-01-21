@@ -27,21 +27,41 @@ div {
 </head>
 <body>
 	<img id="back" src="img/coord.png">
+	<span>this is span</span>
+	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot">
 	<script>
-$(document).ready(function(){	
+$(document).ready(function(){
 	 $.ajax({
 		url: "data/xml.xml",
 		dataType: "xml",
 		success: function(data) {
 			$(data).find('coord').each(function() {
-				var x = $(this).find('x').text();
-				var y = $(this).find('y').text();
-				var offset = $('#back').offset(); 
+				var x = parseInt($(this).find('x').text());
+				var y = parseInt($(this).find('y').text());	
+				var offset = $('#back').position(); 
 				$('body').append(
-					$("<div></div>").css({"background-color": "red"}).offset({ top: offset.top + y, left: offset.left + x })
+					$("<div></div>").css({"background-color": "red"}).offset({ top: offset.top + y, left:  x + offset.left })
 				);
+				$('span').append($("<span></span>").text(offset.top + y + " " + x + offset.left));
 			});
 		}
+	});
+	$("#back").on("click", function(e){
+		var posx = 0;
+		var posy = 0;
+		var offset = $('#back').position();
+		if (!e) var e = window.event;
+		if (e.pageX || e.pageY)
+			{
+			posx = e.pageX;
+			posy = e.pageY;
+			}
+		else if (e.clientX || e.clientY)
+			{
+			posx = e.clientX + document.body.scrollLeft;
+			posy = e.clientY + document.body.scrollTop;
+			}
+		alert("posX = " + (posx - offset.left) + " posY = "+ (posy - offset.top) + " offsetX = " + offset.left + "offsetY = " + offset.top);
 	});
 });	
 </script>

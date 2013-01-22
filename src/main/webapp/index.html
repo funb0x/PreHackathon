@@ -14,8 +14,16 @@ body {
 }
 
 #back {
-	display: block;
 	margin: 0 auto;
+	width: 800px;
+	height: 600px;
+	overflow: auto;
+}
+
+#p {
+	display: block;
+	top: 0;
+	left: 0;
 }
 
 div {
@@ -33,7 +41,9 @@ div {
 </style>
 </head>
 <body>
-	<img id="back">
+	<div id="back">
+		<img id="p">
+	</div>
 	<span>this is span</span>
 	<img
 		src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
@@ -54,7 +64,7 @@ div {
 
 	<script>
 $(document).ready(function(){
-	$.ajax({
+	/* $.ajax({
 		url: "data/xml.xml",
 		dataType: "xml",
 		success: function(data) {
@@ -67,6 +77,22 @@ $(document).ready(function(){
 				);
 				$('span').append($("<span></span>").text(offset.top + y + " " + x + offset.left));
 			});
+		}
+	}); */
+	$.ajax({
+		url: "getjson?number=123",
+		dataType: 'json',
+		success: function(data) {
+			alert("got json" + data.s1 + " " + data.s2);
+			/* $(data).find('coord').each(function() {
+				var x = parseInt($(this).find('x').text());
+				var y = parseInt($(this).find('y').text());	
+				var offset = $('#back').position(); 
+				$('body').append(
+					$("<div></div>").css({"background-color": "red"}).offset({ top: offset.top + y, left:  x + offset.left })
+				);
+				$('span').append($("<span></span>").text(offset.top + y + " " + x + offset.left));
+			}); */
 		}
 	});
 	$("#back").on("click", function(e){
@@ -88,7 +114,7 @@ $(document).ready(function(){
 	});
 	
 	var loc = getURLParameters('loc');
-	$('#back').attr('src', "img/" + loc + ".png");
+	$('#p').attr('src', "img/" + loc + ".png");
 	
 	function getURLParameters(paramName) {
 		var sURL = window.document.URL.toString();

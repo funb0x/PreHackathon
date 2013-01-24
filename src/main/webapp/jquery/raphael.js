@@ -1,16 +1,16 @@
 // ┌────────────────────────────────────────────────────────────────────┐ \\
-// │ Raphaël 2.1.0 - JavaScript Vector Library                          │ \\
+// │ Raphaël 2.1.0 - JavaScript Vector Library │ \\
 // ├────────────────────────────────────────────────────────────────────┤ \\
-// │ Copyright © 2008-2012 Dmitry Baranovskiy (http://raphaeljs.com)    │ \\
-// │ Copyright © 2008-2012 Sencha Labs (http://sencha.com)              │ \\
+// │ Copyright © 2008-2012 Dmitry Baranovskiy (http://raphaeljs.com) │ \\
+// │ Copyright © 2008-2012 Sencha Labs (http://sencha.com) │ \\
 // ├────────────────────────────────────────────────────────────────────┤ \\
 // │ Licensed under the MIT (http://raphaeljs.com/license.html) license.│ \\
 // └────────────────────────────────────────────────────────────────────┘ \\
 
 // ┌──────────────────────────────────────────────────────────────────────────────────────┐ \\
-// │ Eve 0.3.4 - JavaScript Events Library                                                │ \\
+// │ Eve 0.3.4 - JavaScript Events Library │ \\
 // ├──────────────────────────────────────────────────────────────────────────────────────┤ \\
-// │ Copyright (c) 2008-2011 Dmitry Baranovskiy (http://dmitry.baranovskiy.com/)          │ \\
+// │ Copyright (c) 2008-2011 Dmitry Baranovskiy (http://dmitry.baranovskiy.com/) │ \\
 // │ Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license. │ \\
 // └──────────────────────────────────────────────────────────────────────────────────────┘ \\
 
@@ -224,10 +224,10 @@
 
 
 // ┌─────────────────────────────────────────────────────────────────────┐ \\
-// │ "Raphaël 2.1.0" - JavaScript Vector Library                         │ \\
+// │ "Raphaël 2.1.0" - JavaScript Vector Library │ \\
 // ├─────────────────────────────────────────────────────────────────────┤ \\
-// │ Copyright (c) 2008-2011 Dmitry Baranovskiy (http://raphaeljs.com)   │ \\
-// │ Copyright (c) 2008-2011 Sencha Labs (http://sencha.com)             │ \\
+// │ Copyright (c) 2008-2011 Dmitry Baranovskiy (http://raphaeljs.com) │ \\
+// │ Copyright (c) 2008-2011 Sencha Labs (http://sencha.com) │ \\
 // │ Licensed under the MIT (http://raphaeljs.com/license.html) license. │ \\
 // └─────────────────────────────────────────────────────────────────────┘ \\
 (function () {
@@ -477,7 +477,7 @@
         if (type == "array") {
             return o instanceof Array;
         }
-        return  (type == "null" && o === null) ||
+        return (type == "null" && o === null) ||
                 (type == typeof o && o !== null) ||
                 (type == "object" && o === Object(o)) ||
                 (type == "array" && Array.isArray && Array.isArray(o)) ||
@@ -910,7 +910,7 @@
         for (var i = 0, iLen = crp.length; iLen - 2 * !z > i; i += 2) {
             var p = [
                         {x: +crp[i - 2], y: +crp[i - 1]},
-                        {x: +crp[i],     y: +crp[i + 1]},
+                        {x: +crp[i], y: +crp[i + 1]},
                         {x: +crp[i + 2], y: +crp[i + 3]},
                         {x: +crp[i + 4], y: +crp[i + 5]}
                     ];
@@ -1303,7 +1303,7 @@
             return {x: 0, y: 0, width: 0, height: 0, x2: 0, y2: 0};
         }
         path = path2curve(path);
-        var x = 0, 
+        var x = 0,
             y = 0,
             X = [],
             Y = [],
@@ -2199,7 +2199,7 @@
                 s.scalex = +s.scalex.toFixed(4);
                 s.scaley = +s.scaley.toFixed(4);
                 s.rotate = +s.rotate.toFixed(4);
-                return  (s.dx || s.dy ? "t" + [s.dx, s.dy] : E) + 
+                return (s.dx || s.dy ? "t" + [s.dx, s.dy] : E) +
                         (s.scalex != 1 || s.scaley != 1 ? "s" + [s.scalex, s.scaley, 0, 0] : E) +
                         (s.rotate ? "r" + [s.rotate, 0, 0] : E);
             } else {
@@ -2535,7 +2535,7 @@
             body = doc.body,
             docElem = doc.documentElement,
             clientTop = docElem.clientTop || body.clientTop || 0, clientLeft = docElem.clientLeft || body.clientLeft || 0,
-            top  = box.top  + (g.win.pageYOffset || docElem.scrollTop || body.scrollTop ) - clientTop,
+            top = box.top + (g.win.pageYOffset || docElem.scrollTop || body.scrollTop ) - clientTop,
             left = box.left + (g.win.pageXOffset || docElem.scrollLeft || body.scrollLeft) - clientLeft;
         return {
             y: top,
@@ -2825,11 +2825,11 @@
     ef["back-out"] = ef.backOut;
 
     var animationElements = [],
-        requestAnimFrame = window.requestAnimationFrame       ||
+        requestAnimFrame = window.requestAnimationFrame ||
                            window.webkitRequestAnimationFrame ||
-                           window.mozRequestAnimationFrame    ||
-                           window.oRequestAnimationFrame      ||
-                           window.msRequestAnimationFrame     ||
+                           window.mozRequestAnimationFrame ||
+                           window.oRequestAnimationFrame ||
+                           window.msRequestAnimationFrame ||
                            function (callback) {
                                setTimeout(callback, 16);
                            },
@@ -2977,10 +2977,10 @@
             }
         }
         return element;
-        // 
-        // 
+        //
+        //
         // var a = params ? R.animation(params, ms, easing, callback) : anim,
-        //     status = element.status(anim);
+        // status = element.status(anim);
         // return this.animate(a).status(a, status * anim.ms / a.ms);
     };
     function CubicBezierAtTime(t, p1x, p1y, p2x, p2y, duration) {
@@ -3063,7 +3063,7 @@
         return a;
     };
     
-    Animation.prototype.repeat = function (times) { 
+    Animation.prototype.repeat = function (times) {
         var a = new Animation(this.anim, this.ms);
         a.del = this.del;
         a.times = math.floor(mmax(times, 0)) || 1;
@@ -3189,11 +3189,11 @@
                                 // var to2 = {_:{}, getBBox: function () { return element.getBBox(); }};
                                 // extractTransform(to2, to[attr]);
                                 // diff[attr] = [
-                                //     (to2._.sx - _.sx) / ms,
-                                //     (to2._.sy - _.sy) / ms,
-                                //     (to2._.deg - _.deg) / ms,
-                                //     (to2._.dx - _.dx) / ms,
-                                //     (to2._.dy - _.dy) / ms
+                                // (to2._.sx - _.sx) / ms,
+                                // (to2._.sy - _.sy) / ms,
+                                // (to2._.deg - _.deg) / ms,
+                                // (to2._.dx - _.dx) / ms,
+                                // (to2._.dy - _.dy) / ms
                                 // ];
                             }
                             break;
@@ -3744,12 +3744,12 @@
 
 
 // ┌─────────────────────────────────────────────────────────────────────┐ \\
-// │ Raphaël - JavaScript Vector Library                                 │ \\
+// │ Raphaël - JavaScript Vector Library │ \\
 // ├─────────────────────────────────────────────────────────────────────┤ \\
-// │ SVG Module                                                          │ \\
+// │ SVG Module │ \\
 // ├─────────────────────────────────────────────────────────────────────┤ \\
-// │ Copyright (c) 2008-2011 Dmitry Baranovskiy (http://raphaeljs.com)   │ \\
-// │ Copyright (c) 2008-2011 Sencha Labs (http://sencha.com)             │ \\
+// │ Copyright (c) 2008-2011 Dmitry Baranovskiy (http://raphaeljs.com) │ \\
+// │ Copyright (c) 2008-2011 Sencha Labs (http://sencha.com) │ \\
 // │ Licensed under the MIT (http://raphaeljs.com/license.html) license. │ \\
 // └─────────────────────────────────────────────────────────────────────┘ \\
 window.Raphael.svg && function (R) {
@@ -3775,7 +3775,7 @@ window.Raphael.svg && function (R) {
         },
         markerCounter = {};
     R.toString = function () {
-        return  "Your browser supports SVG.\nYou are running Rapha\xebl " + this.version;
+        return "Your browser supports SVG.\nYou are running Rapha\xebl " + this.version;
     };
     var $ = function (el, attr) {
         if (attr) {
@@ -4590,7 +4590,7 @@ window.Raphael.svg && function (R) {
         }
         var parent = this.node.parentNode;
         if (parent.tagName.toLowerCase() == "a") {
-            parent.parentNode.insertBefore(this.node.parentNode, this.node.parentNode.parentNode.firstChild); 
+            parent.parentNode.insertBefore(this.node.parentNode, this.node.parentNode.parentNode.firstChild);
         } else if (parent.firstChild != this.node) {
             parent.insertBefore(this.node, this.node.parentNode.firstChild);
         }
@@ -4841,12 +4841,12 @@ window.Raphael.svg && function (R) {
 }(window.Raphael);
 
 // ┌─────────────────────────────────────────────────────────────────────┐ \\
-// │ Raphaël - JavaScript Vector Library                                 │ \\
+// │ Raphaël - JavaScript Vector Library │ \\
 // ├─────────────────────────────────────────────────────────────────────┤ \\
-// │ VML Module                                                          │ \\
+// │ VML Module │ \\
 // ├─────────────────────────────────────────────────────────────────────┤ \\
-// │ Copyright (c) 2008-2011 Dmitry Baranovskiy (http://raphaeljs.com)   │ \\
-// │ Copyright (c) 2008-2011 Sencha Labs (http://sencha.com)             │ \\
+// │ Copyright (c) 2008-2011 Dmitry Baranovskiy (http://raphaeljs.com) │ \\
+// │ Copyright (c) 2008-2011 Sencha Labs (http://sencha.com) │ \\
 // │ Licensed under the MIT (http://raphaeljs.com/license.html) license. │ \\
 // └─────────────────────────────────────────────────────────────────────┘ \\
 window.Raphael.vml && function (R) {
@@ -4873,7 +4873,7 @@ window.Raphael.vml && function (R) {
         pathTypes = {path: 1, rect: 1, image: 1},
         ovalTypes = {circle: 1, ellipse: 1},
         path2vml = function (path) {
-            var total =  /[ahqstv]/ig,
+            var total = /[ahqstv]/ig,
                 command = R._pathToAbsolute;
             Str(path).match(total) && (command = R._path2curve);
             total = /[clmz]/g;
@@ -4956,7 +4956,7 @@ window.Raphael.vml && function (R) {
             s.visibility = "visible";
         };
     R.toString = function () {
-        return  "Your browser doesn\u2019t support SVG. Falling down to VML.\nYou are running Rapha\xebl " + this.version;
+        return "Your browser doesn\u2019t support SVG. Falling down to VML.\nYou are running Rapha\xebl " + this.version;
     };
     var addArrow = function (o, value, isEnd) {
         var values = Str(value).toLowerCase().split("-"),
@@ -5063,7 +5063,7 @@ window.Raphael.vml && function (R) {
         if ("arrow-end" in params) {
             addArrow(res, params["arrow-end"], 1);
         }
-        if (params.opacity != null || 
+        if (params.opacity != null ||
             params["stroke-width"] != null ||
             params.fill != null ||
             params.src != null ||

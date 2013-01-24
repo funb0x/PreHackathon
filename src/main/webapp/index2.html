@@ -5,26 +5,26 @@
 <head>
 <meta charset="utf-8">
 <title>Pre Hackthon</title>
-<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
-<script type="text/javascript" src="jquery/raphael.js"></script>
-<script type="text/javascript">
-//Creates canvas 320 × 200 at 10, 50
-var paper = Raphael(10, 50, 320, 200);
-
-// Creates circle at x = 50, y = 40, with radius 10
-var circle = paper.circle(50, 40, 10);
-// Sets the fill attribute of the circle to red (#f00)
-circle.attr("fill", "#f00");
-
-var anim = Raphael.animation({cx: 10, cy: 20}, 2e3);
-circle.animate(anim); // run the given animation immediately
-circle.animate(anim.delay(500));
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="jquery/raphael.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+jQuery(document).ready(function(){
+	// Creates canvas 320 × 200 at 10, 50
+	var paper = Raphael(10, 50, 320, 200);
+	
+	// Creates circle at x = 50, y = 40, with radius 10
+	var circle = paper.circle(50, 40, 10);
+	// Sets the fill attribute of the circle to red (#f00)
+	circle.attr("fill", "#f00");
+	
+	var anim = Raphael.animation({cx: 10, cy: 20}, 2e3);
+	circle.animate(anim); // run the given animation immediately
+	circle.animate(anim.delay(500));
+	
+});
 </script>
 
 </head>
-<body>
-	<div id="canvas"></div>
-	<!-- <img src="img/coord.png"> -->
-
+<body style="background-color:Green">
 </body>
 </html>
